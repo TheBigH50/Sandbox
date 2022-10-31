@@ -31,7 +31,6 @@ function reverseWords(string) {
 
 console.log(reverseWords(stringy));
 
-
 let sentence = "The quick brown fox jumps over the lazy dog";
 
 const reverseString = (str) => {
@@ -41,3 +40,21 @@ const reverseString = (str) => {
 
 document.write(`Foward: ${sentence} <br></br>`);
 document.write(`Reverse: ${reverseString(reverseString(sentence))}`);
+
+function pigIt(str) {
+  let split = str.split(" ");
+  let newArr = [];
+  split.forEach((ele) => {
+    if (ele == "!") {
+      newArr.push(ele);
+    } else if (ele == "?") {
+      newArr.push(ele);
+    } else {
+      let nA = ele.split("");
+      nA.splice(ele.length, 0, `${ele[0]}ay`);
+      let pork = nA.slice(1).join("");
+      newArr.push(pork);
+    }
+  });
+  return newArr.join(" ");
+}
