@@ -58,3 +58,27 @@ function pigIt(str) {
   });
   return newArr.join(" ");
 }
+
+function getSumOfDigits(integer) {
+  let sum = 0;
+  let arr = integer.toString().split("");
+  arr.forEach((ele) => {
+    sum += parseInt(ele);
+  });
+
+  return sum;
+}
+
+function candies(kids) {
+  if (kids.length <= 1) {
+    return -1;
+  } else {
+    let extraCandyNeeded = 0;
+    kids.sort();
+    let goalCandy = kids.slice(kids.length - 1);
+    kids.forEach((lackOfCandy) => {
+      extraCandyNeeded += goalCandy - lackOfCandy;
+    });
+    return extraCandyNeeded;
+  }
+}
