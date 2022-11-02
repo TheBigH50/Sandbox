@@ -82,3 +82,21 @@ function candies(kids) {
     return extraCandyNeeded;
   }
 }
+
+function duplicateCount(text) {
+  let textUp = text.toUpperCase();
+  let splitArr = textUp.split("");
+  let lettersArr = [];
+  let countArr = [];
+  splitArr.forEach((ele, idx, arr) => {
+    if (arr.indexOf(ele) != arr.lastIndexOf(ele)) {
+      lettersArr.push(ele);
+    }
+  });
+  lettersArr.forEach((ele, idx, arr) => {
+    if (arr.indexOf(ele, idx) == arr.lastIndexOf(ele)) {
+      countArr.push(ele);
+    }
+  });
+  return countArr.length;
+}
