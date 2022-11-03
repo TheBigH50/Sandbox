@@ -100,3 +100,53 @@ function duplicateCount(text) {
   });
   return countArr.length;
 }
+
+function pairOfShoes(shoes) {
+  let rlArr = [];
+  let sizeArr = [];
+  let noPairArr = [];
+  let rShoe = 0;
+  let lShoe = 0;
+  let paired = true;
+
+  shoes.forEach((ele) => {
+    rlArr.push(ele[0]);
+    sizeArr.push(ele[1]);
+  });
+
+  rlArr.forEach((ele) => {
+    if (ele == 1) {
+      rShoe += 1;
+    } else {
+      lShoe += 1;
+    }
+  });
+
+  if (rShoe == lShoe) {
+    sizeArr.forEach((ele, idx, arr) => {
+      if (idx != arr.lastIndexOf(ele)) {
+        noPairArr.push(ele);
+      }
+    });
+  }
+
+  sizeArr.forEach((ele) => {
+    if (!noPairArr.includes(ele)) {
+      return (paired = false);
+    }
+  });
+
+  return paired;
+}
+
+
+
+class Person {
+  constructor(name, age) {
+    (name = name || "bob"),
+      (age = age || 18),
+      function getInfo() {
+        return `${this.name} age is ${this.age}`;
+      };
+  }
+}
