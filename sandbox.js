@@ -38,7 +38,7 @@ const reverseString = (str) => {
   return splitString;
 };
 
-document.write(`Foward: ${sentence} <br></br>`);
+document.write(`Forward: ${sentence} <br></br>`);
 document.write(`Reverse: ${reverseString(reverseString(sentence))}`);
 
 function pigIt(str) {
