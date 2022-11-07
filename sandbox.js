@@ -139,8 +139,6 @@ function pairOfShoes(shoes) {
   return paired;
 }
 
-
-
 class Person {
   constructor(name, age) {
     (name = name || "bob"),
@@ -149,4 +147,29 @@ class Person {
         return `${this.name} age is ${this.age}`;
       };
   }
+}
+
+function rgb(r, g, b) {
+  let nums = [];
+  let ans = [];
+  nums.push(r, g, b);
+
+  if (r <= 0 && g <= 0 && b <= 0) {
+    return "000000";
+  } else {
+    nums.forEach((ele) => {
+      if (ele > 255) {
+        ans.push("FF");
+      } else {
+        if (ele.toString(16).length == 1) {
+          ans.push("0" + ele.toString(16).toUpperCase());
+        } else if (ele <= 0) {
+          ans.push("00");
+        } else {
+          ans.push(ele.toString(16).toUpperCase());
+        }
+      }
+    });
+  }
+  return ans.join("");
 }
