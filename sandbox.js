@@ -173,3 +173,15 @@ function rgb(r, g, b) {
   }
   return ans.join("");
 }
+
+function sumStrings(a, b) {
+  if (a == "") {
+    a = 0;
+  }
+  if (b == "") {
+    b = 0;
+  }
+  let num = BigInt(a) + BigInt(b);
+  return `${num}`;
+}
+
