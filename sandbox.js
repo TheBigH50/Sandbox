@@ -185,3 +185,58 @@ function sumStrings(a, b) {
   return `${num}`;
 }
 
+function bouncingBall(h, bounce, window) {
+  let bounces = 0;
+  let nope = -1;
+
+  if (h > 0 && bounce < 1 && bounce > 0 && window < h) {
+    do {
+      bounces += 1;
+      h *= bounce;
+      if (h > window) {
+        bounces += 1;
+      }
+    } while (h > window);
+  } else {
+    return nope;
+  }
+  return bounces;
+}
+
+f
+u
+n
+c
+t
+i
+o
+n
+
+f
+(
+)
+{
+r
+e
+t
+u
+r
+n
+
+`
+H
+e
+l
+l
+o
+,
+
+w
+o
+r
+l
+d
+!
+`
+}
+;
