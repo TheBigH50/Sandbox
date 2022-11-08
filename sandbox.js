@@ -203,40 +203,19 @@ function bouncingBall(h, bounce, window) {
   return bounces;
 }
 
-f
-u
-n
-c
-t
-i
-o
-n
+function findOdd(A) {
+  let numsArr = [];
+  let ans = [];
+  A.sort((a, b) => a - b);
 
-f
-(
-)
-{
-r
-e
-t
-u
-r
-n
-
-`
-H
-e
-l
-l
-o
-,
-
-w
-o
-r
-l
-d
-!
-`
+  let newArr = A.forEach((ele, idx, arr) => {
+    if (!numsArr.includes(ele)) {
+      if ((arr.lastIndexOf(ele) + 1 - (idx + 1)) % 2 == 0) {
+        ans.push(ele);
+      } else {
+        numsArr.push(ele);
+      }
+    }
+  });
 }
-;
+console.log(newArr);
