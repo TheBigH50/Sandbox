@@ -219,3 +219,17 @@ function findOdd(A) {
   });
 }
 console.log(newArr);
+
+function vowelOne(s) {
+  let up = s.toUpperCase();
+  let arr = up.split("");
+  let ans = [];
+  arr.forEach((ele) => {
+    if (ele == "A" || ele == "E" || ele == "I" || ele == "O" || ele == "U") {
+      ans.push("1");
+    } else {
+      ans.push("0");
+    }
+  });
+  return ans.join("");
+}
