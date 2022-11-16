@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+}
+
+/* Insert tag level rules here (try not to use tag level rules if you don't have to) */
+
+/* Insert class level rules here */
+
+/* Insert id level rules last */
