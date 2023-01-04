@@ -408,6 +408,7 @@ Condition 3: price = 10 balance = 12 => log hi
 */
 let price = 10;
 let balance = 12;
+
 //This code will never evaluate Condition 3:
 if (price < 300) {
   console.log(price);
