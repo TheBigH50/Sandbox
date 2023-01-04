@@ -329,9 +329,9 @@ function parseInt(string) {
   return result;
 }
 
-var goldbach = function(n) {
+var goldbach = function (n) {
   var primes = [];
-  var isPrime = function(n) {
+  var isPrime = function (n) {
     for (var i = 0; i < primes.length; i++) {
       if (n % primes[i] === 0) {
         return false;
@@ -339,7 +339,7 @@ var goldbach = function(n) {
     }
     return true;
   };
-  var findPrimes = function(n) {
+  var findPrimes = function (n) {
     for (var i = 2; i < n; i++) {
       if (isPrime(i)) {
         primes.push(i);
@@ -406,9 +406,10 @@ Condition 1: price < 450 => log price
 Condition 2: price > 300 => log hello
 Condition 3: price = 10 balance = 12 => log hi
 */
-
+let price = 10;
+let balance = 12;
 //This code will never evaluate Condition 3:
-if(price < 300) {
+if (price < 300) {
   console.log(price);
 } else if (price > 300 && price < 450) {
   console.log(`Hello ${price}`);
@@ -416,10 +417,10 @@ if(price < 300) {
   console.log("Hello");
 } else if (price == 10 && balance == 12) {
   console.log(`Hi ${price}`);
-};
+}
 
 //This code will evaluate all Conditions:
-if(price == 10 && balance == 12) {
+if (price == 10 && balance == 12) {
   console.log(`Hi ${price}`);
 } else if (price > 300 && price < 450) {
   console.log(`Hello ${price}`);
@@ -428,4 +429,3 @@ if(price == 10 && balance == 12) {
 } else if (price > 450) {
   console.log("Hello");
 }
-
