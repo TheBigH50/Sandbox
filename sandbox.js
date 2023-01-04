@@ -233,3 +233,184 @@ function vowelOne(s) {
   });
   return ans.join("");
 }
+
+let arrayofsocres = [2, 3, 4, 55, 64, 99, 25];
+let sum = 0;
+
+function add(num) {
+  sum += num;
+}
+
+let ans = add(...arraysofscores) / arraysofscores.length;
+
+myArr = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+function addStuff(arr) {
+  ans = 0;
+  arr.forEach((ele, idx, arr) =>
+    arr.forEach((ele) => {
+      ans += ele;
+    })
+  );
+  return ans;
+}
+addStuff(myArr);
+
+function parseInt(string) {
+  var numberWords = [
+    "zero",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+    "hundred",
+    "thousand",
+    "million",
+  ];
+  var numberValues = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    30, 40, 50, 60, 70, 80, 90, 100, 1000, 1000000,
+  ];
+  var numberWordToValue = {};
+  for (var i = 0; i < numberWords.length; i++) {
+    numberWordToValue[numberWords[i]] = numberValues[i];
+  }
+  var cut = string.split("-");
+  var build = cut.join(" ");
+  var wordsWithAnd = build.split(" ");
+  var words = wordsWithAnd.filter(function (word) {
+    return word !== "and";
+  });
+  var result = 0;
+  var current = 0;
+  var last = 0;
+  for (var i = 0; i < words.length; i++) {
+    current = numberWordToValue[words[i]];
+    if (current === 100) {
+      last *= current;
+    } else if (current === 1000 || current === 1000000) {
+      if (last === 0) {
+        last = 1;
+      }
+      result += last * current;
+      last = 0;
+    } else {
+      last += current;
+    }
+  }
+  result += last;
+  return result;
+}
+
+var goldbach = function(n) {
+  var primes = [];
+  var isPrime = function(n) {
+    for (var i = 0; i < primes.length; i++) {
+      if (n % primes[i] === 0) {
+        return false;
+      }
+    }
+    return true;
+  };
+  var findPrimes = function(n) {
+    for (var i = 2; i < n; i++) {
+      if (isPrime(i)) {
+        primes.push(i);
+      }
+    }
+  };
+  findPrimes(n);
+  for (var i = 0; i < primes.length; i++) {
+    for (var j = 0; j < primes.length; j++) {
+      if (primes[i] + primes[j] === n) {
+        return [primes[i], primes[j]];
+      }
+    }
+  }
+};
+
+/* var bigInt = 9234756243689885613457614238756198349887134134095097813506978130587134895698134058130897135096708971340589713458961349867138708971305897089713079137103578913408514237982340100134605961340950196134095610923478612340761340569106601034826508761342057861083947258971687632148609136405960213945096234059621309456492347562436898856134576142387561983498871341340950978135069781305871348956981340581308971350967089713405897134589613498671387089713058970897130791371035789134085142379823401001346059613409501961340956109234786123407613405691066010348265087613420578610839472589716876321486091364059602139450962340596213094564n;
+function goldbach(n) {
+  var primes = [];
+  var isPrime = function(n) {
+    for (var i = 0; i < primes.length; i++) {
+      if (n.mod(primes[i]).equals(0)) {
+        return false;
+      }
+    }
+    return true;
+  };
+  var findPrimes = function(n) {
+    for (var i = bigInt(2); i.lesser(n); i = i.add(1)) {
+      if (isPrime(i)) {
+        primes.push(i);
+      }
+    }
+  };
+  findPrimes(n);
+  for (var i = 0; i < primes.length; i++) {
+    for (var j = 0; j < primes.length; j++) {
+      if (primes[i].add(primes[j]).equals(n)) {
+        return [primes[i], primes[j]];
+      }
+    }
+  }
+};
+
+goldbach(bigInt); */
+
+function calc(num1, num2, callBack) {
+  return callBack(num1, num2);
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+console.log(calc(5, 10, add));
+// logs 15
+
+// price < 450 log price
+// price > 300 log hello
+// price = 10 balance = 12 say hi
+
+if(price == 10 && balance == 12) {
+  console.log(`Hi ${price}`);
+} else if (price > 300 && price < 450) {
+  console.log(`Hello ${price}`);
+} else if (price < 300) {
+  console.log(price);
+} else if (price > 450) {
+  console.log("Hello");
+}
