@@ -401,10 +401,24 @@ function add(num1, num2) {
 console.log(calc(5, 10, add));
 // logs 15
 
-// price < 450 log price
-// price > 300 log hello
-// price = 10 balance = 12 say hi
+/* 
+Condition 1: price < 450 => log price
+Condition 2: price > 300 => log hello
+Condition 3: price = 10 balance = 12 => log hi
+*/
 
+//This code will never evaluate Condition 3:
+if(price < 300) {
+  console.log(price);
+} else if (price > 300 && price < 450) {
+  console.log(`Hello ${price}`);
+} else if (price > 450) {
+  console.log("Hello");
+} else if (price == 10 && balance == 12) {
+  console.log(`Hi ${price}`);
+};
+
+//This code will evaluate all Conditions:
 if(price == 10 && balance == 12) {
   console.log(`Hi ${price}`);
 } else if (price > 300 && price < 450) {
@@ -414,3 +428,4 @@ if(price == 10 && balance == 12) {
 } else if (price > 450) {
   console.log("Hello");
 }
+
