@@ -430,3 +430,22 @@ if (price == 10 && balance == 12) {
 } else if (price > 450) {
   console.log("Hello");
 }
+for (let i = 1; i < 100; i++) {
+  let suffix = "";
+  let numArr = i.toString().split("");
+  switch (numArr[numArr.length - 1]) {
+    case "1":
+      suffix = "st";
+      break;
+    case "2":
+      suffix = "nd";
+      break;
+    case "3":
+      suffix = "rd";
+      break;
+    default:
+      suffix = "th";
+  }
+
+  console.log(`Hello for the ${i}${suffix} time`);
+}
