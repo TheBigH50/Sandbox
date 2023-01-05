@@ -477,3 +477,27 @@ function numberToOrdinal(n) {
     }
   }
 }
+
+for (i = 1; i < 200; i++) {
+  let suffix = "";
+  let numArr = i.toString().split("");
+
+  if (numArr[numArr.length - 2] == "1") {
+    console.log(`Hello for the ${i}th time`);
+  } else {
+    switch (numArr[numArr.length - 1]) {
+      case "1":
+        suffix = "st";
+        break;
+      case "2":
+        suffix = "nd";
+        break;
+      case "3":
+        suffix = "rd";
+        break;
+      default:
+        suffix = "th";
+    }
+    console.log(`Hello for the ${i}${suffix} time`);
+  }
+}
