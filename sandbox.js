@@ -449,3 +449,31 @@ for (let i = 1; i < 100; i++) {
 
   console.log(`Hello for the ${i}${suffix} time`);
 }
+
+function numberToOrdinal(n) {
+  if (n == 0) {
+    return "0";
+  } else {
+    let suffix = "";
+    let numArr = n.toString().split("");
+
+    if (numArr[numArr.length - 2] == "1") {
+      return `${n}th`;
+    } else {
+      switch (numArr[numArr.length - 1]) {
+        case "1":
+          suffix = "st";
+          break;
+        case "2":
+          suffix = "nd";
+          break;
+        case "3":
+          suffix = "rd";
+          break;
+        default:
+          suffix = "th";
+      }
+      return `${n}${suffix}`;
+    }
+  }
+}
