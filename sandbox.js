@@ -501,3 +501,21 @@ for (i = 1; i < 200; i++) {
     console.log(`Hello for the ${i}${suffix} time`);
   }
 }
+
+function checkTriangle(a, b, c) {
+  if (a + b < c || a + c < b || b + c < a) {
+    console.log("invalid");
+  } else if (a == b && b == c) {
+    console.log("equilateral");
+  } else if (a == b || b == c) {
+    console.log("isosceles");
+  } else {
+    console.log("scalene");
+  }
+}
+
+checkTriangle(1, 2, 2); //isosceles
+checkTriangle(2, 2, 2); //equilateral
+checkTriangle(4, 5, 6); //scalene
+checkTriangle(10, 5, 7); //scalene
+checkTriangle(1, 1, 10); //invalid
