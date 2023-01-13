@@ -649,4 +649,80 @@ class Person {
   }
 }
 
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+  checkInput(a, b) {
+    if (typeof b === "undefined") {
+      b = a;
+      a = this.result;
+    }
+    return [a, b];
+  }
+  add(a, b) {
+    [a, b] = this.checkInput(a, b);
+    this.result = a + b;
+    return this.result;
+  }
+}
+let calculator = new Calculator();
+let sum1 = calculator.add(5, 10);
+console.log(sum1); // 15
 
+let sum2 = calculator.add(5);
+console.log(sum2); // 5 + this.result
+
+function countDevelopers(list) {
+  let sum = 0;
+
+  list.forEach((a) => {
+    if (a.continent == "Europe" && a.language == "JavaScript") {
+      sum += 1;
+    }
+  });
+  return sum;
+}
+
+let trips = [-1, 3, -25];
+
+function gimme(triplet) {
+  let ans = 0;
+  let a = triplet[0];
+  let b = triplet[1];
+  let c = triplet[2];
+
+  if (a < 0 && b < 0 && c > 0) {
+    a = a * (-c * 1.5);
+    b = b * (-c * 1.5);
+  } else if (a > 0 && b < 0 && c < 0) {
+    b = b * (-a * 1.5);
+    c = c * (-a * 1.5);
+  } else if (a < 0 && b > 0 && c < 0) {
+    a = a * (-b * 1.5);
+    c = c * (-b * 1.5);
+  } else if (a < 0 && b < 0 && c < 0) {
+    a = a * -1;
+    b = b * -1;
+    c = c * -1;
+  }
+
+  if (a < b && c < a && b > c) {
+    ans = 0;
+  } else if (a < b && a > c && b < c) {
+    ans = 0;
+  } else if (a > b && a < c && b < c) {
+    ans = 0;
+  } else if (a > b && a < c && b < c) {
+    ans = 0;
+  } else if (a < b && b < c) {
+    ans = 1;
+  } else if (a > b && b > c) {
+    ans = 1;
+  } else {
+    ans = 2;
+  }
+  return ans;
+}
+
+console.log(gimme(trips));
