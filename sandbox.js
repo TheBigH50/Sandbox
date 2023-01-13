@@ -606,3 +606,47 @@ function gimme(triplet) {
   }
   return ans;
 }
+
+function sortByGenderAndScore(users) {
+  let inLine = users
+    .sort(function (a, b) {
+      if (a.gender < b.gender) {
+        return -1;
+      } else if (a.gender > b.gender) {
+        return 1;
+      } else {
+        return b.score - a.score;
+      }
+    })
+    .map(function (user) {
+      return { name: user.name, score: user.score };
+    });
+  return inLine;
+}
+
+console.log(sortByGenderAndScore(users));
+
+let myArr = [1, 2, 3];
+
+let myArrX2 = myArr.reduce((acc, cur) => {
+  return acc + cur * 2;
+}, 0); // returns 12
+
+let myArrNotQuiteX2 = myArr.reduce((acc, cur) => {
+  return acc + cur * 2;
+}); //returns 11
+
+console.log(myArrX2, myArrNotQuiteX2);
+
+class Person {
+  constructor(name, age) {
+    (this.name = name),
+      (this.age = age),
+      (this.info = `${name}s age is ${age}`);
+  }
+  getInfo() {
+    return this.info;
+  }
+}
+
+
