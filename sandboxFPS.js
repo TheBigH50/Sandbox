@@ -1,72 +1,30 @@
-function gimme(triplet) {
-    let ans = 2;
-    let a = triplet[0];
-    let b = triplet[1];
-    let c = triplet[2];
-  
-    if (a < 0 && b < 0 && c < 0) {
-      a = a * -1;
-      b = b * -1;
-      c = c * -1;
+let deck = [
+  "AS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "10S", "JS", "QS", "KS",
+  "AH", "2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "10H", "JH", "QH", "KH",
+  "AC", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC",
+  "AD", "2D", "3D", "4D", "5D", "6D", "7D", "8D", "9D", "10D", "JD", "QD", "KD"
+  ];
+let shuffledDeck = [];
+
+function shuffle() {
+  let tempDeck = [];
+  while (tempDeck.length < 52) {
+    let a = Math.floor(Math.random() * (52 - 1) + 1);
+    let b = Math.floor(Math.random() * (52 - 1) + 1);
+    let c = Math.floor(Math.random() * (52 - 1) + 1);
+    let d = a + b + c;
+
+    if (tempDeck.includes(d) == false && d > 51 && d < 104) {
+      tempDeck.push(d);
     }
-  
-    if (a + b > a + c && b + c < a + b) {
-      if (a > b) {
-        ans = 1;
-      } else {
-        ans = 0;
-      }
-    } else if (b + c > a + c) {
-      if (b < c) {
-        ans = 1;
-      } else {
-        ans = 2;
-      }
-    } else if (a + b < b + c) {
-      if (a < c) {
-        ans = 0;
-      } else {
-        ans = 2;
-      }
-    }
-  
-    if (a < 0 && b < 0) {
-      if (a > b) {
-        ans = 0;
-      } else {
-        ans = 1;
-      }
-    } else if (a < 0 && c < 0) {
-      if (a > c) {
-        ans = 0;
-      } else {
-        ans = 2;
-      }
-    } else if (b < 0 && c < 0) {
-      if (b > c) {
-        ans = 1;
-      } else {
-        ans = 2;
-      }
-    }
-    if (a < 0 && b > 0 && c > 0) {
-      if (b > c) {
-        ans = 2;
-      } else {
-        ans = 1;
-      }
-    } else if (b < 0 && a > 0 && c > 0) {
-      if (a > c) {
-        ans = 2;
-      } else {
-        ans = 0;
-      }
-    } else if (c < 0 && a > 0 && b > 0) {
-      if (a > b) {
-        ans = 1;
-      } else {
-        ans = 0;
-      }
-    }
-    return ans;
   }
+  console.log(tempDeck);
+  for (let i = 0; i < 52; i++) {
+    shuffledDeck.push(deck[tempDeck[i] - 52]);
+  }
+
+  console.log(shuffledDeck);
+  return shuffledDeck;
+}
+
+shuffle();

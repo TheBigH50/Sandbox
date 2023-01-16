@@ -745,7 +745,6 @@ function correct(string) {
   return ans.join("");
 }
 
-
 let deck = [
   "AS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "10S", "JS", "QS", "KS",
   "AH", "2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "10H", "JH", "QH", "KH",
@@ -754,7 +753,7 @@ let deck = [
   ];
 let shuffledDeck = [];
 
-function shuffle(deck) {
+function shuffle() {
   let tempDeck = [];
   while (tempDeck.length < 52) {
     let a = Math.floor(Math.random() * (52 - 1) + 1);
@@ -762,11 +761,17 @@ function shuffle(deck) {
     let c = Math.floor(Math.random() * (52 - 1) + 1);
     let d = a + b + c;
 
-    if (tempDeck.includes(d) == false && d > 52 && d < 105) {
+    if (tempDeck.includes(d) == false && d > 51 && d < 104) {
       tempDeck.push(d);
     }
   }
   console.log(tempDeck);
+  for (let i = 0; i < 52; i++) {
+    shuffledDeck.push(deck[tempDeck[i] - 52]);
+  }
+
+  console.log(shuffledDeck);
+  return shuffledDeck;
 }
 
 shuffle();
