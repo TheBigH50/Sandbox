@@ -745,7 +745,7 @@ function correct(string) {
   return ans.join("");
 }
 
-let deck = [
+/* let deck = [
   "AS", "2S", "3S", "4S", "5S", "6S", "7S", "8S", "9S", "10S", "JS", "QS", "KS",
   "AH", "2H", "3H", "4H", "5H", "6H", "7H", "8H", "9H", "10H", "JH", "QH", "KH",
   "AC", "2C", "3C", "4C", "5C", "6C", "7C", "8C", "9C", "10C", "JC", "QC", "KC",
@@ -772,6 +772,29 @@ function shuffle() {
 
   console.log(shuffledDeck);
   return shuffledDeck;
+}
+
+shuffle(); */
+
+function shuffle() {
+  let idArr = ["ID1","ID1", "ID2", "ID2", "ID3", "ID3", "ID4", "ID4",
+  "ID5", "ID5", "ID6", "ID6", "ID7", "ID7", "ID8", "ID8"];
+  let shuffledCards = [];
+  let tempCards = [];
+  while (tempCards.length < 16) {
+    let a = Math.floor(Math.random() * 16);
+
+    if (tempCards.includes(a) == false && a < 16) {
+      tempCards.push(a);
+    }
+  }
+  console.log(tempCards);
+  for (let i = 0; i < 16; i++) {
+    shuffledCards.push(idArr[tempCards[i] - 16]);
+  }
+
+  console.log(shuffledCards);
+  return shuffledCards;
 }
 
 shuffle();
