@@ -1,38 +1,37 @@
-function gimme(triplet) {
-    let ans = 0;
-    let a = triplet[0];
-    let b = triplet[1];
-    let c = triplet[2];
-  
-    if (a < 0 && b < 0 && c > 0) {
-      a = a * (-c * 1.5);
-      b = b * (-c * 1.5);
-    } else if (a > 0 && b < 0 && c < 0) {
-      b = b * (-a * 1.5);
-      c = c * (-a * 1.5);
-    } else if (a < 0 && b > 0 && c < 0) {
-      a = a * (-b * 1.5);
-      c = c * (-b * 1.5);
-    } else if (a < 0 && b < 0 && c < 0) {
-      a = a * -1;
-      b = b * -1;
-      c = c * -1;
-    }
-  
-    if (a < b && c < a && b > c) {
-      ans = 0;
-    } else if (a < b && a > c && b < c) {
-      ans = 0;
-    } else if (a > b && a < c && b < c) {
-      ans = 0;
-    } else if (a > b && a < c && b < c) {
-      ans = 0;
-    } else if (a < b && b < c) {
-      ans = 1;
-    } else if (a > b && b > c) {
-      ans = 1;
-    } else {
-      ans = 2;
-    }
-    return ans;
+let plainText = "You Did It! Well done to show me you completed this challenge comment the current time"
+
+function encrypt(plainText, key) {
+  let cipherText = "";
+  let columns = key;
+  let rows = Math.ceil(plainText.length / columns);
+  let matrix = new Array(rows);
+
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = new Array(columns);
   }
+
+  let index = 0;
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      if (index < plainText.length) {
+        matrix[i][j] = plainText[index];
+        index++;
+      } else {
+        matrix[i][j] = null;
+      }
+    }
+  }
+
+  for (let j = 0; j < columns; j++) {
+    for (let i = 0; i < rows; i++) {
+      if (matrix[j][i]) {
+        console.log(matrix[j][i]);
+        cipherText += matrix[j][i];
+      }
+    }
+  }
+  return cipherText;
+}
+
+let CipherText = encrypt(plainText, 6);
+console.log(CipherText);

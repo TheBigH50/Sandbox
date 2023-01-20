@@ -798,3 +798,80 @@ function shuffle() {
 }
 
 shuffle();
+
+
+let plainText = "You Did It! Well done to show me you completed this challenge comment the current time"
+
+function encrypt(plainText, key) {
+  let cipherText = "";
+  let columns = key;
+  let rows = Math.ceil(plainText.length / columns);
+  let matrix = new Array(rows);
+
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = new Array(columns);
+  }
+
+  let index = 0;
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      if (index < plainText.length) {
+        matrix[i][j] = plainText[index];
+        index++;
+      } else {
+        matrix[i][j] = null;
+      }
+    }
+  }
+
+  for (let j = 0; j < columns; j++) {
+    for (let i = 0; i < rows; i++) {
+      if (matrix[j][i]) {
+        console.log(matrix[j][i]);
+        cipherText += matrix[j][i];
+      }
+    }
+  }
+  return cipherText;
+}
+
+let CipherText = encrypt(plainText, 6);
+console.log(CipherText);
+
+function decrypt(cipherText, key) {
+  let plainText = "";
+  let columns = key;
+  let rows = Math.ceil(cipherText.length / columns);
+  let matrix = new Array(rows);
+
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = new Array(columns);
+  }
+
+  let index = 0;
+  for (let i = 0; i < columns; i++) {
+    for (let j = 0; j < rows; j++) {
+      if (index < cipherText.length) {
+        matrix[j][i] = cipherText[index];
+        index++;
+      } else {
+        matrix[j][i] = null;
+      }
+    }
+  }
+console.log(matrix);
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < columns; j++) {
+      if (matrix[i][j]) {
+        console.log(matrix[i][j]);
+        plainText += matrix[i][j];
+      }
+    }
+  }
+  console.log(plainText);
+}
+
+let cipherText =
+  "YdWnsop cnmtrto eehulthgmhriuIl o ehaeeeem tltwctil n neD!do oeslctcti o ymd eo u";
+  
+decrypt(cipherText, 6);
