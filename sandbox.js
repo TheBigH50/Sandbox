@@ -800,7 +800,7 @@ function shuffle() {
 shuffle();
 
 
-let plainText = "You Did It! Well done to show me you completed this challenge comment the current time"
+let plainText = "You Did It! Well done to show you completed this challenge comment the current time"
 
 function encrypt(plainText, key) {
   let cipherText = "";
@@ -843,35 +843,28 @@ function decrypt(cipherText, key) {
   let columns = key;
   let rows = Math.ceil(cipherText.length / columns);
   let matrix = new Array(rows);
-
   for (let i = 0; i < rows; i++) {
     matrix[i] = new Array(columns);
   }
-
   let index = 0;
-  for (let i = 0; i < columns; i++) {
-    for (let j = 0; j < rows; j++) {
-      if (index < cipherText.length) {
-        matrix[j][i] = cipherText[index];
+  for (let j = 0; j < columns; j++) {
+    for (let i = 0; i < rows; i++) {
+        matrix[i][j] = cipherText[index];
         index++;
-      } else {
-        matrix[j][i] = null;
-      }
     }
   }
-console.log(matrix);
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < columns; j++) {
       if (matrix[i][j]) {
-        console.log(matrix[i][j]);
         plainText += matrix[i][j];
       }
     }
   }
-  console.log(plainText);
+  return plainText;
 }
 
 let cipherText =
   "YdWnsop cnmtrto eehulthgmhriuIl o ehaeeeem tltwctil n neD!do oeslctcti o ymd eo u";
   
-decrypt(cipherText, 6);
+let PlainText = decrypt(cipherText, 6);
+console.log(PlainText);

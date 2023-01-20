@@ -1,5 +1,4 @@
-let plainText = "You Did It! Well done to show me you completed this challenge comment the current time"
-
+let plainText = "You Did It! Well done to show you completed this challenge comment the current time"
 
 
 
@@ -24,9 +23,9 @@ function encrypt(plainText, key) {
   }
   for (let j = 0; j < columns; j++) {
     for (let i = 0; i < rows; i++) {
-      if (matrix[j][i]) {
-        console.log(matrix[j][i]);
-        cipherText += matrix[j][i];
+      if (matrix[i][j]) {
+        console.log(matrix[i][j]);
+        cipherText += matrix[i][j];
       }
     }
   }
