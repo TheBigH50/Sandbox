@@ -802,16 +802,16 @@ shuffle();
 
 let plainText = "You Did It! Well done to show you completed this challenge comment the current time"
 
+
+
 function encrypt(plainText, key) {
   let cipherText = "";
   let columns = key;
   let rows = Math.ceil(plainText.length / columns);
   let matrix = new Array(rows);
-
   for (let i = 0; i < rows; i++) {
     matrix[i] = new Array(columns);
   }
-
   let index = 0;
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < columns; j++) {
@@ -823,12 +823,11 @@ function encrypt(plainText, key) {
       }
     }
   }
-
   for (let j = 0; j < columns; j++) {
     for (let i = 0; i < rows; i++) {
-      if (matrix[j][i]) {
-        console.log(matrix[j][i]);
-        cipherText += matrix[j][i];
+      if (matrix[i][j]) {
+        console.log(matrix[i][j]);
+        cipherText += matrix[i][j];
       }
     }
   }
@@ -837,6 +836,9 @@ function encrypt(plainText, key) {
 
 let CipherText = encrypt(plainText, 6);
 console.log(CipherText);
+
+// YdWnsop cnmtrto eehulthgmhriuIl o ehaeeeem tltwctil n neD!do oeslctcti o ymd eo u
+
 
 function decrypt(cipherText, key) {
   let plainText = "";
