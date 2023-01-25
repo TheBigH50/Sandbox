@@ -805,7 +805,7 @@ let plainText = "You Did It! Well done to show you completed this challenge comm
 
 
 function encrypt(plainText, key) {
-  let cipherText = "";
+  let ciphertext = "";
   let columns = key;
   let rows = Math.ceil(plainText.length / columns);
   let matrix = new Array(rows);
@@ -827,15 +827,15 @@ function encrypt(plainText, key) {
     for (let i = 0; i < rows; i++) {
       if (matrix[i][j]) {
         console.log(matrix[i][j]);
-        cipherText += matrix[i][j];
+        ciphertext += matrix[i][j];
       }
     }
   }
-  return cipherText;
+  return ciphertext;
 }
 
-let CipherText = encrypt(plainText, 6);
-console.log(CipherText);
+let ciphertext = encrypt(plainText, 6);
+console.log(cipherText);
 
 // YdWnsop cnmtrto eehulthgmhriuIl o ehaeeeem tltwctil n neD!do oeslctcti o ymd eo u
 
