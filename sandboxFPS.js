@@ -25,4 +25,5 @@ function checkWin(x, o) {
       winner = "DRAW";
     }
   }
+  return winner;
 }
